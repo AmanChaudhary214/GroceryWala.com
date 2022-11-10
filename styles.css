@@ -1,45 +1,71 @@
+body>a {
+    margin-top: 15px;
+}
 #top {
     margin: auto;
-    width: 90%;
+    width: auto;
     height: auto;
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: space-between;
     margin-bottom: 5px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: white;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    z-index: 10;
 }
 
 #top>div>div {
     display: flex;
     justify-content: space-between;
     text-align: left;
+    margin-right: 25px;
+    margin-top: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #top>div>div>input {
     height: 25px;
-    width: 900px;
+    width: 875px;
     padding-left: 20px;
     border: 0.5px solid gray;
     border-radius: 3px;
 }
 
-#top>div>div>img {
-    fill-opacity: rgb(150, 200, 100);
+#top>div>div>a>img {
     margin-left: 25px;
     height: 30px;
 }
 
-#top>div>img {
-    margin: 0px 50px 0px;
+#top>div>div>a>button {
+    margin-top: 10px;
+    padding: 5px 10px 5px;
+    color: white;
+    background-color: rgb(150, 200, 100);
+    border: 0px;
+    border-radius: 4px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    cursor: pointer;
+}
+
+#top>div>a>img {
+    margin: 0px 25px 0px;
     height: 100px;
 }
 
 #nav {
-    margin: 15px auto 10px;
+    margin: 10px auto 10px;
     width: 90%;
     height: auto;
     background-color: rgb(251, 251, 251);
     border-radius: 5px;
     display: flex;
     justify-content: space-around;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 #nav>div {
@@ -119,11 +145,16 @@
 }
 
 #banner-bottom {
-    margin: 50px auto 50px;
+    margin: 50px auto 100px;
     width: 90%;
     height: auto;
     display: flex;
     justify-content: space-between;
+}
+
+#banner-bottom>div:hover {
+    transform: scale(1.05);
+    z-index: 2;
 }
 
 #banner-bottom>div>img {
@@ -139,11 +170,17 @@ h2 {
 }
 
 #medium {
-    margin: auto;
-    width: 90%;
-    display: flex;
-    justify-content: space-evenly;
+    margin: 50px auto 50px;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 40px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#medium>div:hover {
+    transform: scale(1.05);
+    z-index: 2;
 }
 
 #medium>div>img {
@@ -157,6 +194,33 @@ h2 {
     color: gray;
     border-bottom: 1px solid darkgray;
     padding-bottom: 5px;
+}
+
+#bottom-slider {
+    margin: auto;
+    width: 90%;
+    height: 376px;
+    overflow: hidden;
+    position: relative;
+    background-image: url("https://www.naturesbasket.co.in/Images/homepageblogbanner/NB_paneerBlog_banner.jpg");
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    background-size: 100% 100%;
+    animation: slider2 15s infinite linear;
+    border-radius: 10px;
+}
+
+@keyframes slider2 {
+    34% {
+        background-image: url("https://www.naturesbasket.co.in/Images/homepageblogbanner/NB_paneerBlog_banner.jpg");
+    }
+
+    68% {
+        background-image: url("https://www.naturesbasket.co.in/Images/homepageblogbanner/NB_pastaBlog_banner.jpg");
+    }
+
+    100% {
+        background-image: url("https://www.naturesbasket.co.in/Images/homepageblogbanner/NB_1320x355-blog2.jpg");
+    }
 }
 
 #bottom {
@@ -227,3 +291,68 @@ body>p {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: small;
 }
+
+/* login page */
+
+#main {
+    margin: 50px auto 50px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#main>div {
+    width: auto;
+    padding: 0px 25px 0px;
+    flex-direction: column;
+}
+
+#order-list, #address-list {
+    width: 50%;
+    margin-right: 100px;
+    padding: 0px 25px 0px;
+    flex-direction: column;
+}
+
+#menu-bar {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+#menu-bar>a>button {
+    width: 100%;
+    color: black;
+    background-color: rgb(150, 200, 100);
+    font-size: medium;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px;
+    padding-right: 100px;
+    border-radius: 3px;
+    border: 0px;
+    margin: 5px;
+    cursor: pointer;
+    text-align: left;
+}
+
+#main>div>input {
+    display: block;
+    width: 250px;
+    height: 25px;
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
+#submit {
+    width: auto;
+    margin-top: 20px;
+    padding: 5px 20px 5px;
+    border: 0px;
+    color: white;
+    background-color: rgb(150, 200, 100);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
