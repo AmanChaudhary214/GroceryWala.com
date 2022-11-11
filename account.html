@@ -68,21 +68,28 @@
                 <button>My Cart</button>
             </a>
         </div>
-        <div>
-            <h3>JOIN THE TRIBE !</h3>
-            <p>It's quick and easy.</p>
-            <input type="text" placeholder="First name">
-            <input type="text" placeholder="Last name">
-            <input type="text" placeholder="Mobile number or Email">
-            <input type="text" placeholder="New password">
-            <button id="submit">Sign Up</button>
-        </div>
-        <div>
-            <h3>ALREADY A MEMBER, LOGIN</h3>
-            <p>Welcome Back!</p>
-            <input type="text" placeholder="Mobile number or Email">
-            <input type="text" placeholder="Password">
-            <button id="submit">Login</button>
+        <div id="loginpage">
+            <div>
+                <h3>JOIN THE TRIBE !</h3>
+                <p>It's quick and easy.</p>
+                <form id="signupform">
+                    <input required type="text" name="name" placeholder="Enter your Name">
+                    <input required type="text" name="email" placeholder="Enter your Email Address">
+                    <input required type="text" name="mobile" placeholder="Mobile number">
+                    <input required type="password" name="password" placeholder="New password">
+                    <p><span><input type="checkbox"></span>I agree to the terms of services.</p>
+                    <button id="signup">Sign Up</button>
+                </form>
+            </div>
+            <div>
+                <h3>ALREADY A MEMBER, LOGIN</h3>
+                <p>Welcome Back!</p>
+                <form id="loginform">
+                    <input required type="text" name="email" placeholder="Enter your Email Address">
+                    <input required type="password" name="password" placeholder="Enter Password">
+                    <button id="login">Login</button>
+                </form>
+            </div>
         </div>
     </div>
     <div id="bottom">
@@ -155,6 +162,58 @@
     </div>
     <p>© 2022 GroceryWala.com Limited. All rights reserved. | Privacy Policy | Terms of Use | Home Delivery Number -
         9876543210 | Site Map | Mobile Site | FSSAI License Number - 11519002000496</p>
+    
 </body>
 
 </html>
+
+<script>
+    
+    let signupData = document.querySelector("#signupform");
+    
+    let userData = JSON.parse(localStorage.getItem("signupData")) || [];
+    
+    signup.addEventListener("click", function(event) {
+        event.preventDefault();
+        let objData = {
+            name : signupData.name.value,
+            email : signupData.email.value,
+            mobile : signupData.mobile.value,
+            password : signupData.password.value
+        }
+        userData.push(objData);
+        localStorage.setItem("signupData", JSON.stringify(userData));
+
+        alert("Congrats! Your Sign up was successful. Enjoy Shopping with us.");
+        window.location.href = "GroceryWala.html";
+    });
+
+
+    let loginData = document.querySelector("#loginform");
+
+    login.addEventListener("click", function(event) {
+        event.preventDefault();
+        let objData = {
+            email : loginData.email.value,
+            password : loginData.password.value
+        }
+
+        let count=0;
+        userData.forEach(function(element) {
+            if (objData.email==element.email && objData.password==element.password)
+            {
+                alert("Sign in successful");
+                window.location.href = "GroceryWala.html";
+            }
+            else
+            {
+                count++;
+            }
+        });
+        if (count==userData.length)
+        {
+            alert("Incorrect credentials! Please try again.");
+        }
+    })
+
+</script>

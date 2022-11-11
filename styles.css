@@ -19,6 +19,11 @@ body>a {
     z-index: 10;
 }
 
+#top>div:nth-child(2){
+    width: 80%;
+    height: auto;
+}
+
 #top>div>div {
     display: flex;
     justify-content: space-between;
@@ -31,14 +36,15 @@ body>a {
 
 #top>div>div>input {
     height: 25px;
-    width: 875px;
+    width: 100%;
+    margin-right: 20px;
     padding-left: 20px;
     border: 0.5px solid gray;
-    border-radius: 3px;
+    border-radius: 5px;
 }
 
 #top>div>div>a>img {
-    margin-left: 25px;
+    margin-left: 40px;
     height: 30px;
 }
 
@@ -327,12 +333,6 @@ body>p {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#main>div {
-    width: auto;
-    padding: 0px 25px 0px;
-    flex-direction: column;
-}
-
 #order-list,
 #address-list {
     width: 50%;
@@ -342,7 +342,7 @@ body>p {
 }
 
 #menu-bar {
-    width: 30%;
+    width: 20%;
     display: flex;
     flex-direction: column;
     margin-top: 20px;
@@ -354,8 +354,7 @@ body>p {
     background-color: rgb(150, 200, 100);
     font-size: medium;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 10px;
-    padding-right: 100px;
+    padding: 10px 20px 10px;
     border-radius: 3px;
     border: 0px;
     margin: 5px;
@@ -363,12 +362,41 @@ body>p {
     text-align: left;
 }
 
-#main>div>input {
+#loginpage {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+#loginpage>div {
+    display: flex;
+    flex-direction: column;
+}
+
+#loginpage>div>form {
+    display: flex;
+    flex-direction: column;
+}
+
+#loginpage>div>form>input {
     display: block;
     width: 250px;
     height: 25px;
     padding-left: 10px;
     margin-top: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#signup, #login {
+    width: auto;
+    margin-top: 20px;
+    padding: 5px 20px 5px;
+    border: 0px;
+    color: white;
+    background-color: rgb(150, 200, 100);
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 #submit {
@@ -378,37 +406,80 @@ body>p {
     border: 0px;
     color: white;
     background-color: rgb(150, 200, 100);
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
 }
+
+
 
 /* Products Page */
 
 #all-products {
     margin: auto;
     width: 90%;
-    margin: 50px auto 50px;
 }
 
-#all-products>div {
-    margin: auto;
+#filter {
+    margin: 50px auto 50px;
     display: flex;
     justify-content: space-between;
 }
 
-#all-products>div>select {
+#filter>div {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: auto;
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#filter>div>select {
     margin: auto;
     padding: 5px 10px 5px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border-radius: 3px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: 0px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 8px;
 }
 
 #container {
     margin: auto;
     width: 90%;
+    height: auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    grid-template-rows: auto;
+    gap: 40px;
+}
+
+#container>div {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+#container>div:hover {
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+#container>div>p {
+    font-size: small;
+}
+
+#container>div>img {
+    width: 75%;
+    height: auto;
+}
+
+#container>div>button {
+    margin: 0px 5px 0px;
+    padding: 5px 10px 5px;
+    border: 0px;
+    border-radius: 3px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    background-color: rgb(150, 200, 100);
 }

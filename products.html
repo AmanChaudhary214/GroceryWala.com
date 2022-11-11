@@ -27,7 +27,7 @@
                 </a>
             </div>
             <div>
-                <input type="text" placeholder="Search Products here...">
+                <input type="text" oninput="search()" placeholder="Search Products here...">
                 <a href="myFavourites.html"><img
                         src="https://www.clipartmax.com/png/full/0-7626_green-star-clip-art-star-icon-png-green.png"></a>
                 <a href="cart.html"><img
@@ -51,23 +51,29 @@
         <div>BOOK STORE VISIT</div>
     </div>
     <div id="all-products">
-        <div>
-            <select name="category" id="">
-                <option value="All Products">All Products</option>
-                <option value="Ready to Eat">Ready to Eat</option>
-                <option value="Fine Teas">Fine Teas</option>
-                <option value="Fresh Artisanal Breads">Fresh Artisanal Breads</option>
-                <option value="Bespoke Gifts">Bespoke Gifts</option>
-                <option value="Heart Healthy Food">Heart Healthy Food</option>
-                <option value="Indian Grocery">Indian Grocery</option>
-                <option value="Coffee">Coffee</option>
-                <option value="International Cuisines">International Cuisines</option>
-            </select>
-            <select name="sort" id="sort">
-                <option value="featured">Featured</option>
-                <option value="lth">Price Low to High</option>
-                <option value="htl">Price High to Low</option>
-            </select>
+        <div id="filter">
+            <div>
+                <p>Select Category</p>
+                <select id="category" onchange="category()">
+                    <option value="Select">Select</option>
+                    <option value="Ready to Eat">Ready to Eat</option>
+                    <option value="Fine Teas">Fine Teas</option>
+                    <option value="Fresh Artisanal Breads">Fresh Artisanal Breads</option>
+                    <option value="Bespoke Gifts">Bespoke Gifts</option>
+                    <option value="Heart Healthy Foods">Heart Healthy Foods</option>
+                    <option value="Indian Grocery">Indian Grocery</option>
+                    <option value="Coffee">Coffee</option>
+                    <option value="International Cuisines">International Cuisines</option>
+                </select>
+            </div>
+            <div>
+                <p>Sort Products By</p>
+                <select id="sort" onchange="sort()">
+                    <option value="featured">Featured</option>
+                    <option value="LTH">Price Low to High</option>
+                    <option value="HTL">Price High to Low</option>
+                </select>
+            </div>
         </div>
         <div id="container"></div>
     </div>
@@ -147,6 +153,67 @@
 
 <script>
 
+    let products = [];
+
     let url = "https://636b8d177f47ef51e133a376.mockapi.io/groceries";
+
+    fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+            products = data;
+            displayProducts(data)
+        });
+
+    // function search() {
+    //     let search = document.querySelector("input").value;
+    //     let newdata = products.filter(function (elem) {
+    //         return elem.name.toLowerCase().includes(search.toLowerCase());
+    //     });
+    //     displayCard(newdata);
+    // }
+
+    function category() {
+        let selected = document.querySelector("#category").value;
+        let newData = products.filter(function (elem) {
+            return elem.category == selected;
+        });
+        displayProducts(newData);
+    }
+
+    function sort() {
+        let selected = document.querySelector("#sort").value;
+        if (selected == "LTH") {
+            products.sort(function (a, b) { return a.price - b.price });
+        }
+        else if (selected == "HTL") {
+            products.sort(function (a, b) { return b.price - a.price });
+        }
+        displayProducts(products);
+    }
+
+    function displayProducts(data) {
+        document.querySelector("#container").innerHTML = "";
+        data.forEach(function (elem) {
+            let div = document.createElement("div");
+
+            let image = document.createElement("img");
+            image.setAttribute("src", elem.avatar);
+            let name = document.createElement("h4");
+            name.innerText = elem.name;
+            let category = document.createElement("p");
+            category.innerText = elem.category;
+            let description = document.createElement("p");
+            description.innerText = elem.description;
+            let price = document.createElement("p");
+            price.innerText = "Price: " + elem.price;
+            let favourites = document.createElement("button");
+            favourites.innerText = "Add to Favourites";
+            let cart = document.createElement("button");
+            cart.innerText = "Add to Cart";
+
+            div.append(image, name, category, description, price, favourites, cart);
+            document.querySelector("#container").append(div);
+        })
+    }
 
 </script>
