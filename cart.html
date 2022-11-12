@@ -50,7 +50,8 @@
         <div>BLOG</div>
         <div>BOOK STORE VISIT</div>
     </div>
-    <div id="main">
+
+    <div id="cont">
         <div id="menu-bar">
             <a href="account.html">
                 <button>Account Details</button>
@@ -68,16 +69,20 @@
                 <button>My Cart</button>
             </a>
         </div>
-        <div>
-            <h3>ITEMS IN YOUR CART</h3>
-            <p>Add items to place your order and get it delivered.</p>
-        </div>
-        <div>
-            <a href="GroceryWala.html">
-                <button id="submit">Add Items</button>
-            </a>
+        <div id="cont-main">
+            <div id="cont-head">
+                <h3>MY CART</h3>
+                <p>Add items in the cart to place your order.</p>
+                <a href="products.html">
+                    <button id="submit">Add Items</button>
+                </a>
+            </div>
+            <div id="total">
+            </div>
+            <div id="cartItems"></div>
         </div>
     </div>
+
     <div id="bottom">
         <div>
             <div>
@@ -151,3 +156,48 @@
 </body>
 
 </html>
+
+<script>
+
+    let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    displayProducts(cart);
+
+    function displayProducts(cart) {
+        document.querySelector("#cartItems").innerText = "";
+        cart.forEach(function (elem) {
+            let div = document.createElement("div");
+
+            let image = document.createElement("img");
+            image.setAttribute("src", elem.avatar);
+            let name = document.createElement("h4");
+            name.innerText = elem.name;
+            let category = document.createElement("p");
+            category.innerText = elem.category;
+            let description = document.createElement("p");
+            description.innerText = elem.description;
+            let price = document.createElement("p");
+            price.innerText = "Price: " + elem.price;
+
+            div.append(image, name, category, description, price);
+            document.querySelector("#cartItems").append(div);
+
+            // addcart.addEventListener("click", function () {
+            //     cart.push(elem);
+            //     localStorage.setItem("cartItems", JSON.stringify(cartItems));
+            // });
+        })
+    }
+
+    let totalPrice = 0;
+    for (let i = 0; i < cart.length; i++) {
+        totalPrice = totalPrice + Number(cart[i].price);
+    }
+    localStorage.setItem("total", JSON.stringify(totalPrice));
+
+    let p = document.createElement("p");
+    p.innerText = "Total Cart Value : Rs. " + totalPrice;
+    document.querySelector("#cont-head").append(p);
+
+
+</script>
