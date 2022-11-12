@@ -9,7 +9,7 @@
     <link rel="icon"
         href="https://cdn.filestackcontent.com/BUx17lDT5q0655Cu0Bzg?policy=eyJleHBpcnkiOjE3MDQwNjcxOTksImNhbGwiOlsicGljayIsInJlYWQiLCJ3cml0ZSIsIndyaXRlVXJsIiwic3RvcmUiXSwibWF4U2l6ZSI6MTAyNDAwMDB9&signature=1d0fbc55d6a921405f4857134945838eb714bcd6720e9333078c6f893b0f4f78"
         type="image/icon type">
-    <title>Products</title>
+    <title>Checkout Page</title>
 </head>
 
 <body>
@@ -27,7 +27,7 @@
                 </a>
             </div>
             <div>
-                <input type="text" oninput="search()" placeholder="Search Products here...">
+                <input type="text" placeholder="Search Products here...">
                 <a href="myFavourites.html"><img
                         src="https://www.clipartmax.com/png/full/0-7626_green-star-clip-art-star-icon-png-green.png"></a>
                 <a href="cart.html"><img
@@ -50,33 +50,48 @@
         <div>BLOG</div>
         <div>BOOK STORE VISIT</div>
     </div>
-    <div id="all-products">
-        <div id="filter">
+
+    <div id="checkout">
+        <p>Enter card details for payment.</p>
+        <form id="signupform">
+            <input required type="text" id="cardno" placeholder="Enter card number">
+            <input required type="text" id="name" placeholder="Enter card holder's name">
+            <input required type="password" id="cvv" placeholder="Enter CVV/CVC">
             <div>
-                <label for="category">Select Category</label>
-                <select id="category" onchange="filter()">
-                    <option value="Select">Select</option>
-                    <option value="Ready to Eat">Ready to Eat</option>
-                    <option value="Fine Teas">Fine Teas</option>
-                    <option value="Fresh Artisanal Breads">Fresh Artisanal Breads</option>
-                    <option value="Bespoke Gifts">Bespoke Gifts</option>
-                    <option value="Heart Healthy Foods">Heart Healthy Foods</option>
-                    <option value="Indian Grocery">Indian Grocery</option>
-                    <option value="Coffee">Coffee</option>
-                    <option value="International Cuisines">International Cuisines</option>
+                <label for="expiry">Expiry Date</label>
+                <select name="month" id="month">
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                    <option value="">5</option>
+                    <option value="">6</option>
+                    <option value="">7</option>
+                    <option value="">8</option>
+                    <option value="">9</option>
+                    <option value="">10</option>
+                    <option value="">11</option>
+                    <option value="">12</option>
+                </select>
+                <select name="year" id="year">
+                    <option value="">2023</option>
+                    <option value="">2024</option>
+                    <option value="">2025</option>
+                    <option value="">2026</option>
+                    <option value="">2027</option>
+                    <option value="">2028</option>
+                    <option value="">2029</option>
+                    <option value="">2030</option>
+                    <option value="">2031</option>
+                    <option value="">2032</option>
+                    <option value="">2033</option>
+                    <option value="">2034</option>
                 </select>
             </div>
-            <div>
-                <label for="sort">Sort Products by</label>
-                <select id="sort" onchange="filter()">
-                    <option value="featured">Featured</option>
-                    <option value="LTH">Price Low to High</option>
-                    <option value="HTL">Price High to Low</option>
-                </select>
-            </div>
-        </div>
-        <div id="container"></div>
+            <input type="submit" value="Request OTP" onclick="myalert()">
+        </form>
     </div>
+
     <div id="bottom">
         <div>
             <div>
@@ -153,83 +168,8 @@
 
 <script>
 
-    let products = [];
-
-    let fav = JSON.parse(localStorage.getItem("favourites")) || [];
-
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    let url = "https://636b8d177f47ef51e133a376.mockapi.io/groceries";
-
-    fetch(url)
-        .then((res) => res.json())
-        .then((data) => {
-            products = data;
-            displayProducts(data)
-        });
-
-    // function search() {
-    //     let search = document.querySelector("input").value;
-    //     let newdata = products.filter(function (elem) {
-    //         return elem.name.toLowerCase().includes(search.toLowerCase());
-    //     });
-    //     displayCard(newdata);
-    // }
-
-    function filter() {
-        let sort = document.querySelector("#sort").value;
-        let filter = document.querySelector("#category").value;
-        if (sort == "LTH") {
-            products.sort(function (a, b) { return a.price - b.price });
-        }
-        else if (sort == "HTL") {
-            products.sort(function (a, b) { return b.price - a.price });
-        }
-
-        if (filter == "Select") {
-            displayProducts(products);
-        }
-        else {
-            let newData = products.filter(function (elem) {
-                return elem.category == filter;
-            })
-            displayProducts(newData);
-        }
-    }
-
-    function displayProducts(data) {
-        document.querySelector("#container").innerHTML = "";
-        data.forEach(function (elem) {
-            let div = document.createElement("div");
-
-            let image = document.createElement("img");
-            image.setAttribute("src", elem.avatar);
-            let name = document.createElement("h4");
-            name.innerText = elem.name;
-            let category = document.createElement("p");
-            category.innerText = elem.category;
-            let description = document.createElement("p");
-            description.innerText = elem.description;
-            let price = document.createElement("p");
-            price.innerText = "Price: " + elem.price;
-            let addfavourites = document.createElement("button");
-            addfavourites.innerText = "Add to Favourites";
-            let addcart = document.createElement("button");
-            addcart.innerText = "Add to Cart";
-
-            addfavourites.addEventListener("click", function () {
-                fav.push(elem);
-                localStorage.setItem("favourites", JSON.stringify(fav));
-            });
-
-            addcart.addEventListener("click", function () {
-                cart.push(elem);
-                localStorage.setItem("cartItems", JSON.stringify(cart));
-            });
-
-            div.append(image, name, category, description, price, addfavourites, addcart);
-            document.querySelector("#container").append(div);
-        })
+    function myalert() {
+        alert("Order placed successfully")
     }
 
 </script>
