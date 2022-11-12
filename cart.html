@@ -72,12 +72,14 @@
         <div id="cont-main">
             <div id="cont-head">
                 <h3>MY CART</h3>
-                <p>Add items in the cart to place your order.</p>
-                <a href="products.html">
-                    <button id="submit">Add Items</button>
-                </a>
-            </div>
-            <div id="total">
+                <div>
+                    <a href="products.html">
+                        <button id="submit">Add Items</button>
+                    </a>
+                    <a href="checkout.html">
+                        <button id="submit">Proceed to Checkout</button>
+                    </a>
+                </div>
             </div>
             <div id="cartItems"></div>
         </div>
@@ -178,8 +180,10 @@
             description.innerText = elem.description;
             let price = document.createElement("p");
             price.innerText = "Price: " + elem.price;
+            let remove = document.createElement("button");
+            remove.innerText = "Remove Item";
 
-            div.append(image, name, category, description, price);
+            div.append(image, name, category, description, price, remove);
             document.querySelector("#cartItems").append(div);
 
             // addcart.addEventListener("click", function () {

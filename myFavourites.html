@@ -180,13 +180,15 @@
             price.innerText = "Price: " + elem.price;
             let addcart = document.createElement("button");
             addcart.innerText = "Add to Cart";
+            let remove = document.createElement("button");
+            remove.innerText = "Remove Item";
 
             addcart.addEventListener("click", function () {
                 cart.push(elem);
                 localStorage.setItem("cartItems", JSON.stringify(cart));
             });
 
-            div.append(image, name, category, description, price, addcart);
+            div.append(image, name, category, description, price, addcart, remove);
             document.querySelector("#favourites").append(div);
         })
     }
