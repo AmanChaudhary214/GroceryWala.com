@@ -61,6 +61,11 @@ body>a {
     cursor: pointer;
 }
 
+#top>div>div>a>button:hover {
+    transform: scale(1.05);
+    z-index: 2;
+}
+
 #top>div>a>img {
     margin: 0px 25px 0px;
     height: 100px;
@@ -362,6 +367,11 @@ body>p {
     text-align: left;
 }
 
+#menu-bar>a>button:hover {
+    transform: scale(1.05);
+    z-index: 2;
+}
+
 #loginpage {
     width: 70%;
     margin: auto;
@@ -372,6 +382,9 @@ body>p {
 #loginpage>div {
     display: flex;
     flex-direction: column;
+    padding: 10px 50px 25px;
+    background-color: rgb(251, 251, 251);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 #loginpage>div>form {
@@ -399,7 +412,7 @@ body>p {
     cursor: pointer;
 }
 
-#submit {
+#loginpage>div>form>input:last-child {
     width: auto;
     margin-top: 20px;
     padding: 5px 20px 5px;
@@ -410,16 +423,16 @@ body>p {
     cursor: pointer;
 }
 
-
-
 /* Products Page */
 
 #all-products {
     margin: auto;
     width: 90%;
+    background-color: rgb(251, 251, 251);
 }
 
 #filter {
+    width: 90%;
     margin: 50px auto 50px;
     display: flex;
     justify-content: space-between;
@@ -431,6 +444,7 @@ body>p {
     width: 300px;
     display: flex;
     justify-content: space-around;
+    padding-top: 40px;
 }
 
 #filter>div>select {
@@ -444,7 +458,7 @@ body>p {
 
 #container {
     margin: auto;
-    width: 90%;
+    padding: 0px 40px 40px;
     height: auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -457,6 +471,7 @@ body>p {
     text-align: center;
     border-radius: 10px;
     padding: 20px;
+    background-color: white;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
@@ -482,4 +497,132 @@ body>p {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
     background-color: rgb(150, 200, 100);
+    cursor: pointer;
+}
+
+/* My Favourite Page */
+
+#cont {
+    margin: auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#cont-main {
+    margin: 25px auto 25px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(251, 251, 251);
+}
+
+#cont-head {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#cont-head>a>button {
+    margin: 0px 5px 0px;
+    padding: 5px 10px 5px;
+    border: 0px;
+    border-radius: 3px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    background-color: rgb(150, 200, 100);
+    cursor: pointer;
+}
+
+#favourites {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+    margin: 0px 25px 25px;
+}
+
+#favourites>div {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+#favourites>div:hover {
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+#favourites>div>img {
+    width: 50%;
+    height: auto;
+}
+
+#favourites>div>p {
+    font-size: small;
+}
+
+#favourites>div>button {
+    margin: auto;
+    padding: 5px 10px 5px;
+    border: 0px;
+    border-radius: 3px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    background-color: rgb(150, 200, 100);
+    cursor: pointer;
+}
+
+/* Cart Page */
+
+#cartItems {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+    margin: 0px 25px 25px;
+}
+
+#cartItems>div {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+#cartItems>div:hover {
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+#cartItems>div>img {
+    width: 50%;
+    height: auto;
+}
+
+#cartItems>div>p {
+    font-size: small;
+}
+
+#cartItems>div>button {
+    margin: auto;
+    padding: 5px 10px 5px;
+    border: 0px;
+    border-radius: 3px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    background-color: rgb(150, 200, 100);
+    cursor: pointer;
+}
+
+/* My Order Page */
+
+#cont-head>input {
+    margin-right: 10px;
+    padding: 2px;
 }

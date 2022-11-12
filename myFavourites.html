@@ -50,7 +50,8 @@
         <div>BLOG</div>
         <div>BOOK STORE VISIT</div>
     </div>
-    <div id="main">
+
+    <div id="cont">
         <div id="menu-bar">
             <a href="account.html">
                 <button>Account Details</button>
@@ -68,15 +69,18 @@
                 <button>My Cart</button>
             </a>
         </div>
-        <div>
-            <h3>MY FAVOURITES</h3>
-            <p>Lists can be created, saved and used to avoid time in spending time in searching products for future use.
-            </p>
-            <a href="GroceryWala.html">
-                <button id="submit">Create List</button>
-            </a>
+        <div id="cont-main">
+            <div id="cont-head">
+                <h3>MY FAVOURITES</h3>
+                <p>Items can be saved and used to avoid time in spending time in searching products for future use.</p>
+                <a href="products.html">
+                    <button id="submit">Add Items</button>
+                </a>
+            </div>
+            <div id="favourites"></div>
         </div>
     </div>
+
     <div id="bottom">
         <div>
             <div>
@@ -150,3 +154,41 @@
 </body>
 
 </html>
+
+<script>
+
+    let fav = JSON.parse(localStorage.getItem("favourites")) || [];
+
+    let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    displayProducts(fav);
+
+    function displayProducts(fav) {
+        document.querySelector("#favourites").innerText = "";
+        fav.forEach(function (elem) {
+            let div = document.createElement("div");
+
+            let image = document.createElement("img");
+            image.setAttribute("src", elem.avatar);
+            let name = document.createElement("h4");
+            name.innerText = elem.name;
+            let category = document.createElement("p");
+            category.innerText = elem.category;
+            let description = document.createElement("p");
+            description.innerText = elem.description;
+            let price = document.createElement("p");
+            price.innerText = "Price: " + elem.price;
+            let addcart = document.createElement("button");
+            addcart.innerText = "Add to Cart";
+
+            addcart.addEventListener("click", function () {
+                cart.push(elem);
+                localStorage.setItem("cartItems", JSON.stringify(cart));
+            });
+
+            div.append(image, name, category, description, price, addcart);
+            document.querySelector("#favourites").append(div);
+        })
+    }
+
+</script>

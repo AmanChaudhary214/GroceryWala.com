@@ -73,21 +73,21 @@
                 <h3>JOIN THE TRIBE !</h3>
                 <p>It's quick and easy.</p>
                 <form id="signupform">
-                    <input required type="text" name="name" placeholder="Enter your Name">
-                    <input required type="text" name="email" placeholder="Enter your Email Address">
-                    <input required type="text" name="mobile" placeholder="Mobile number">
-                    <input required type="password" name="password" placeholder="New password">
+                    <input required type="text" id="name" placeholder="Enter your Name">
+                    <input required type="text" id="email" placeholder="Enter your Email Address">
+                    <input required type="text" id="mobile" placeholder="Mobile number">
+                    <input required type="password" id="password" placeholder="New password">
                     <p><span><input type="checkbox"></span>I agree to the terms of services.</p>
-                    <button id="signup">Sign Up</button>
+                    <input type="submit" value="Sign Up">
                 </form>
             </div>
             <div>
                 <h3>ALREADY A MEMBER, LOGIN</h3>
                 <p>Welcome Back!</p>
                 <form id="loginform">
-                    <input required type="text" name="email" placeholder="Enter your Email Address">
-                    <input required type="password" name="password" placeholder="Enter Password">
-                    <button id="login">Login</button>
+                    <input required type="text" id="mail" placeholder="Enter your Email Address">
+                    <input required type="password" id="pass" placeholder="Enter Password">
+                    <input type="submit" value="Sign In">
                 </form>
             </div>
         </div>
@@ -173,7 +173,7 @@
     
     let userData = JSON.parse(localStorage.getItem("signupData")) || [];
     
-    signup.addEventListener("click", function(event) {
+    signupData.addEventListener("submit", function(event) {
         event.preventDefault();
         let objData = {
             name : signupData.name.value,
@@ -191,12 +191,13 @@
 
     let loginData = document.querySelector("#loginform");
 
-    login.addEventListener("click", function(event) {
+    loginData.addEventListener("submit", function(event) {
         event.preventDefault();
         let objData = {
-            email : loginData.email.value,
-            password : loginData.password.value
+            email : loginData.mail.value,
+            password : loginData.pass.value
         }
+        console.log("aman")
 
         let count=0;
         userData.forEach(function(element) {
