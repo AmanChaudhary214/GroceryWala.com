@@ -15,7 +15,7 @@
 <body>
     <div id="top">
         <div>
-            <a href="GroceryWala.html">
+            <a href="index.html">
                 <img
                     src="https://cdn.filestackcontent.com/97Xj8bphTMuHlSBPWGad?policy=eyJleHBpcnkiOjE3MDQwNjcxOTksImNhbGwiOlsicGljayIsInJlYWQiLCJ3cml0ZSIsIndyaXRlVXJsIiwic3RvcmUiXSwibWF4U2l6ZSI6MTAyNDAwMDB9&signature=1d0fbc55d6a921405f4857134945838eb714bcd6720e9333078c6f893b0f4f78"></a>
         </div>
@@ -27,7 +27,7 @@
                 </a>
             </div>
             <div>
-                <input type="text" placeholder="Search Products here...">
+                <input type="text" oninput="search()" placeholder="Search Products here..." id="searchproduct">
                 <a href="myFavourites.html"><img
                         src="https://www.clipartmax.com/png/full/0-7626_green-star-clip-art-star-icon-png-green.png"></a>
                 <a href="cart.html"><img
@@ -54,6 +54,7 @@
         <img
             src="https://gnbdevcdn.s3-ap-southeast-1.amazonaws.com/Marketing/d8cc09f5-5d68-4853-ae9a-233ceabe3acd.jpg?v=14">
     </div>
+    <div id="container"></div>
     <div id="banner-mid"></div>
     <div id="banner-bottom">
         <div>
@@ -70,7 +71,7 @@
         <p id="para">" Within 90 minutes delivery in selected cities "</p>
     </div>
     <h2>---------- SHOP BY CATEGORY ----------</h2>
-    
+
     <div id="medium">
         <div>
             <img src="https://www.naturesbasket.co.in/Images/static/Readytoeat.jpg">
@@ -78,7 +79,9 @@
             <p>Hors'D Oeuvres</p>
             <p>Pastries Desserts</p>
             <p>Soups Salads</p>
-            <p style="color: rgb(150, 200, 100);">View All</p>
+            <a href="products.html" style=" text-decoration: solid;">
+                <p>View All</p>
+            </a>
         </div>
         <div>
             <img src="https://www.naturesbasket.co.in/Images/static/Fine-Teas.jpg">
@@ -86,7 +89,9 @@
             <p>Black Teas</p>
             <p>Green White Oolong Teas</p>
             <p>Herbal Teas Detox Benefit Blends</p>
-            <p style="color: rgb(150, 200, 100);">View All</p>
+            <a href="products.html" style=" text-decoration: solid;">
+                <p>View All</p>
+            </a>
         </div>
         <div>
             <img src="https://www.naturesbasket.co.in/Images/static/Fresh-Artisinal-%20Breads.jpg">
@@ -94,7 +99,9 @@
             <p>Breadsticks Crostinni Lavache</p>
             <p>Buns Croissants Bagels</p>
             <p>Muffins Cakes Brownies</p>
-            <p style="color: rgb(150, 200, 100);">View All</p>
+            <a href="products.html" style=" text-decoration: solid;">
+                <p>View All</p>
+            </a>
         </div>
         <div>
             <img src="https://www.naturesbasket.co.in/Images/static/Bespoke-Gifts_new.jpg">
@@ -102,7 +109,9 @@
             <p>Diwali Gift Hampers</p>
             <p>Birthday Anniversary Gift Hampers</p>
             <p>Bulk Enquiry</p>
-            <p style="color: rgb(150, 200, 100);">View All</p>
+            <a href="products.html" style=" text-decoration: solid;">
+                <p>View All</p>
+            </a>
         </div>
         <div>
             <img src="https://www.naturesbasket.co.in/Images/static/hearthealthy.jpg">
@@ -110,7 +119,9 @@
             <p>Amaranth Couscous Quinoa</p>
             <p>Flours Rice Condiments</p>
             <p>Seafood Lean Meats</p>
-            <p style="color: rgb(150, 200, 100);">View All</p>
+            <a href="products.html" style=" text-decoration: solid;">
+                <p>View All</p>
+            </a>
         </div>
         <div>
             <img src="https://www.naturesbasket.co.in/Images/static/Indiangrocery.jpg">
@@ -118,7 +129,9 @@
             <p>Salt Sugar Substitutes</p>
             <p>Cooking Spices Powders</p>
             <p>Oils</p>
-            <p style="color: rgb(150, 200, 100);">View All</p>
+            <a href="products.html" style=" text-decoration: solid;">
+                <p>View All</p>
+            </a>
         </div>
         <div>
             <img src="https://www.naturesbasket.co.in/Images/static/coffee_277x277.jpg">
@@ -126,7 +139,9 @@
             <p>Instant Coffee Espresso Powder</p>
             <p>Coffee Beans Grounds</p>
             <p>Filter Coffee</p>
-            <p style="color: rgb(150, 200, 100);">View All</p>
+            <a href="products.html" style=" text-decoration: solid;">
+                <p>View All</p>
+            </a>
         </div>
         <div>
             <img src="https://www.naturesbasket.co.in/Images/static/International-Cuisine.jpg">
@@ -134,7 +149,9 @@
             <p>Pasta</p>
             <p>Rice Quinoa</p>
             <p>Olive Extravirgin Olive Oils</p>
-            <p style="color: rgb(150, 200, 100);">View All</p>
+            <a href="products.html" style=" text-decoration: solid;">
+                <p>View All</p>
+            </a>
         </div>
     </div>
     <div id="bottom-slider"></div>
@@ -142,9 +159,13 @@
         <div>
             <div>
                 <h3>DOWNLOAD THE APP</h3>
-                <img src="https://cdn.worldvectorlogo.com/logos/get-it-on-google-play.svg">
+                <a href="https://play.google.com/store/apps/details?id=com.godrej.naturesbasketltd">
+                    <img src="https://cdn.worldvectorlogo.com/logos/get-it-on-google-play.svg">
+                </a>
                 <br>
-                <img src="https://cdn.worldvectorlogo.com/logos/available-on-the-app-store.svg">
+                <a href="https://apps.apple.com/in/app/natures-basket/id1013402486">
+                    <img src="https://cdn.worldvectorlogo.com/logos/available-on-the-app-store.svg">
+                </a>
             </div>
             <div>
                 <h3>ABOUT US</h3>
@@ -177,7 +198,9 @@
             <div>
                 <h3>SIGN UP TO STAY UPDATED</h3>
                 <input type="text" placeholder="ENTER YOUR EMAIL ADDRESS">
-                <button>SUBSCRIBE</button>
+                <a href="account.html">
+                    <button>SUBSCRIBE</button>
+                </a>
             </div>
         </div>
         <div id="footer">
@@ -209,7 +232,73 @@
     <p>© 2022 GroceryWala.com Limited. All rights reserved. | Privacy Policy | Terms of Use | Home Delivery Number -
         9876543210 | Site Map | Mobile Site | FSSAI License Number - 11519002000496</p>
 </body>
-<script>
-</script>
 
 </html>
+
+<script>
+
+    let products = [];
+
+    let fav = JSON.parse(localStorage.getItem("favourites")) || [];
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let url = "https://636b8d177f47ef51e133a376.mockapi.io/groceries";
+
+    fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+            products = data;
+        });
+
+
+    function search() {
+        let search = document.querySelector("#searchproduct").value;
+
+        if (search == "") {
+        document.querySelector("#container").innerHTML = "";
+        }
+        else {
+            let newdata = products.filter(function (elem) {
+                return elem.name.toLowerCase().includes(search.toLowerCase());
+            });
+            displayProducts(newdata);
+        }
+    }
+
+    function displayProducts(data) {
+        document.querySelector("#container").innerHTML = "";
+        data.forEach(function (elem) {
+            let div = document.createElement("div");
+
+            let image = document.createElement("img");
+            image.setAttribute("src", elem.avatar);
+            let name = document.createElement("h4");
+            name.innerText = elem.name;
+            let category = document.createElement("p");
+            category.innerText = elem.category;
+            let description = document.createElement("p");
+            description.innerText = elem.description;
+            let price = document.createElement("p");
+            price.innerText = "Price: " + elem.price;
+            let addfavourites = document.createElement("button");
+            addfavourites.innerText = "Add to Favourites";
+            let addcart = document.createElement("button");
+            addcart.innerText = "Add to Cart";
+
+            addfavourites.addEventListener("click", function () {
+                fav.push(elem);
+                localStorage.setItem("favourites", JSON.stringify(fav));
+            });
+
+            addcart.addEventListener("click", function () {
+                cart.push(elem);
+                localStorage.setItem("cartItems", JSON.stringify(cart));
+            });
+
+            div.append(image, name, category, description, price, addfavourites, addcart);
+            document.querySelector("#container").append(div);
+        })
+    }
+
+</script>
