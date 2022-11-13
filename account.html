@@ -15,7 +15,7 @@
 <body>
     <div id="top">
         <div>
-            <a href="GroceryWala.html">
+            <a href="index.html">
                 <img
                     src="https://cdn.filestackcontent.com/97Xj8bphTMuHlSBPWGad?policy=eyJleHBpcnkiOjE3MDQwNjcxOTksImNhbGwiOlsicGljayIsInJlYWQiLCJ3cml0ZSIsIndyaXRlVXJsIiwic3RvcmUiXSwibWF4U2l6ZSI6MTAyNDAwMDB9&signature=1d0fbc55d6a921405f4857134945838eb714bcd6720e9333078c6f893b0f4f78"></a>
         </div>
@@ -96,9 +96,13 @@
         <div>
             <div>
                 <h3>DOWNLOAD THE APP</h3>
-                <img src="https://cdn.worldvectorlogo.com/logos/get-it-on-google-play.svg">
+                <a href="https://play.google.com/store/apps/details?id=com.godrej.naturesbasketltd">
+                    <img src="https://cdn.worldvectorlogo.com/logos/get-it-on-google-play.svg">
+                </a>
                 <br>
-                <img src="https://cdn.worldvectorlogo.com/logos/available-on-the-app-store.svg">
+                <a href="https://apps.apple.com/in/app/natures-basket/id1013402486">
+                    <img src="https://cdn.worldvectorlogo.com/logos/available-on-the-app-store.svg">
+                </a>
             </div>
             <div>
                 <h3>ABOUT US</h3>
@@ -131,7 +135,9 @@
             <div>
                 <h3>SIGN UP TO STAY UPDATED</h3>
                 <input type="text" placeholder="ENTER YOUR EMAIL ADDRESS">
-                <button>SUBSCRIBE</button>
+                <a href="account.html">
+                    <button>SUBSCRIBE</button>
+                </a>
             </div>
         </div>
         <div id="footer">
@@ -185,7 +191,7 @@
         localStorage.setItem("signupData", JSON.stringify(userData));
 
         alert("Congrats! Your Sign up was successful. Enjoy Shopping with us.");
-        window.location.href = "GroceryWala.html";
+        window.location.href = "index.html";
     });
 
 
@@ -203,7 +209,7 @@
             if (objData.email==element.email && objData.password==element.password)
             {
                 alert("Sign in successful");
-                window.location.href = "GroceryWala.html";
+                window.location.href = "index.html";
             }
             else
             {

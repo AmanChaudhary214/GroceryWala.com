@@ -101,7 +101,7 @@ body>a {
     width: 90%;
     height: auto;
     border-radius: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 #banner-top>img {
@@ -226,6 +226,13 @@ h2 {
     padding-bottom: 5px;
 }
 
+#medium>div>a>p {
+    display: block;
+    color: rgb(150, 200, 100);
+    border-bottom: 1px solid darkgray;
+    padding-bottom: 5px;
+}
+
 #bottom-slider {
     margin: auto;
     width: 90%;
@@ -268,9 +275,14 @@ h2 {
     justify-content: space-evenly;
 }
 
-#bottom>div>div>img {
+#bottom>div>div>a>img {
     width: 175px;
     margin-top: 15px;
+}
+
+#bottom>div>div>a>img:hover {
+    transform: scale(1.05);
+    z-index: 2;
 }
 
 #bottom>div>div>h3 {
@@ -290,12 +302,18 @@ h2 {
     padding-left: 20px;
 }
 
-#bottom>div>div>button {
+#bottom>div>div>a>button {
     color: white;
     background-color: rgb(150, 200, 100);
     padding: 10px 20px 10px;
     border-radius: 3px;
     border: 0px;
+    cursor: pointer;
+}
+
+#bottom>div>div>a>button:hover {
+    transform: scale(1.05);
+    z-index: 2;
 }
 
 #footer {
