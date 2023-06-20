@@ -2,7 +2,7 @@
 
 . . . . . GroceryWala.com . . . . .
 
-### GroceryWala.com, a clone of Nature's Basket, which is an onine supermarket and premium grovery store in India.
+### GroceryWala.com, a clone of Nature's Basket, which is an online supermarket and premium grocery store in India.
 
 <br>
 
